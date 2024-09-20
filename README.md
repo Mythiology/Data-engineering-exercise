@@ -15,20 +15,21 @@ With all this in mind, for us to get all the data needed, this solution is optim
 ## Architecture Diagram
 ```mermaid
 graph TD;
-    Start-->File_reading_Country-Code.xlsx;
+    id1(Start)-->File_reading_Country-Code.xlsx;
     File_reading_Country-Code.xlsx-->File_reading_restaurant_data.json;
     File_reading_restaurant_data.json-->Extracting_data_restaurant_details.csv;
-    Extracting_data_restaurant_details.csv-->misclick;
-    
+    Extracting_data_restaurant_details.csv-->valid_country_id_of_the_restaurant?;
+    valid_country_id_of_the_restaurant?-->No_Ignore_restaurant;
+    No_Ignore_restaurant-->Extracting_data_restaurant_details.csv;
+    valid_country_id_of_the_restaurant?-->Yes_Extract_the_data;
+    Yes_Extract_the_data-->Write_file_restaurant_details.csv;
+    Yes_Extract_the_data-->Extract_user_rating_text_and_rating;
+    Extract_user_rating_text_and_rating-->Show_the_rating_and_text;
+    Write_file_restaurant_details.csv-->Extracting_data_restaurant_events.csv;
+    Extracting_data_restaurant_events.csv-->StartDate_EndDate_in_April_2019?;
+    StartDate_EndDate_in_April_2019?-->No_Ignore_event;
+    No_Ignore_event-->Extracting_data_restaurant_events.csv;
+    StartDate_EndDate_in_April_2019?-->Yes_Extract_event;
+    Yes_Extract_event-->Write_file_restaurant_events.csv;
+    Write_file_restaurant_events.csv-->End;
 ```
-Check if the country id of the restaurant inside Country-Code.xlsx?-->[No] Ignore;
-    Check if the country id of the restaurant inside Country-Code.xlsx?-->[Yes] Extract the data;
-    [Yes] Extract the data-->Once down with all data, File writing [restaurant_details.csv];
-    [Yes] Extract the data-->Extract user rating text and rating;
-    Extract user rating text and rating-->Show the rough rating for each user rating text;
-    Once down with all data, File writing [restauranzt_details.csv]-->Extracting data [restaurant_events.csv];
-    Extracting data [restaurant_events.csv]-->Check if the startdate or enddate of the event in April 2019?;
-    Check if the startdate or enddate of the event in April 2019?-->[No] Ignore;
-    Check if the startdate or enddate of the event in April 2019?-->[Yes] Extract the data;
-    [Yes] Extract the data-->Once down with all data, File writing [restaurant_events.csv];
-    Once down with all data, File writing [restaurant_events.csv]-->End;
