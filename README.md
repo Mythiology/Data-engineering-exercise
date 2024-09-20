@@ -2,7 +2,7 @@
 
 ## Installation of modules
 Steps:
-1) Run `pip install requirements.txt`
+1) Run `pip install -r requirements.txt`
 2) Run the python file `main.py`
 
 ## Short summary on how to design/deploy using cloud services and any decisions you made when designing solution

@@ -1,9 +1,9 @@
-2024-09-20 18:28:10,652 [Status] Country-Code.xlsx has been read.
-2024-09-20 18:28:10,652 [Status] Dataframe has been extracted from Country-Code.xlsx.
-2024-09-20 18:28:10,670 [Status] restaurant_data.json has been read.
-2024-09-20 18:28:10,742 [Status] restaurant_data.json file has been normalised.
-2024-09-20 18:28:10,764 [Status] Restaurant data has been extracted.
-2024-09-20 18:28:10,772 [Status] restaurant_details.csv has been written.
-2024-09-20 18:28:10,772 [Status] Event data has been extracted.
-2024-09-20 18:28:10,772 [Status] restaurant_events.csv has been written.
-2024-09-20 18:28:10,773 [Status] User rating has been extracted.
+2024-09-20 19:38:22,307 [Status] Country-Code.xlsx has been read.
+2024-09-20 19:38:22,307 [Status] Dataframe has been extracted from Country-Code.xlsx.
+2024-09-20 19:38:22,319 [Status] restaurant_data.json has been read.
+2024-09-20 19:38:22,392 [Status] restaurant_data.json file has been normalised.
+2024-09-20 19:38:22,414 [Status] Restaurant data has been extracted.
+2024-09-20 19:38:22,421 [Status] restaurant_details.csv has been written.
+2024-09-20 19:38:22,421 [Status] Event data has been extracted.
+2024-09-20 19:38:22,422 [Status] restaurant_events.csv has been written.
+2024-09-20 19:38:22,422 [Status] User rating has been extracted.
