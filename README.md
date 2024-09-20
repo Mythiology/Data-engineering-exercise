@@ -14,7 +14,7 @@ With all this in mind, for us to get all the data needed, this solution is optim
 
 ## Architecture Diagram
 ```mermaid
-Architecture Diagram;
+graph TD;
     Start-->File reading [Country-Code.xlsx];
     File reading [Country-Code.xlsx]-->File reading [restaurant_data.json];
     File reading [restaurant_data.json]-->Extracting data [restaurant_details.csv];
