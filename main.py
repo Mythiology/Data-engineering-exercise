@@ -3,7 +3,7 @@ import json
 import csv
 import logging
 
-# logging configuration
+"""logging configuration"""
 logging.basicConfig(
     filename = "Data Engineering.log",
     format = '%(asctime)s %(message)s',
@@ -87,7 +87,8 @@ logger.info('[Status] Restaurant data has been extracted.')
 
 """need to write utf-8 for special characters like पुणे """
 with open('results/restaurant_details.csv', 'w', encoding = 'utf-8') as file: 
-    header = ['Restaurant_id', 'Name', 'Country', 'City','Votes', 'Aggregate Rating', 'Cuisines', 'Event_Data']
+    header = ['Restaurant_id', 'Name', 'Country', 'City',
+              'Votes', 'Aggregate Rating', 'Cuisines', 'Event_Data']
     writer = csv.DictWriter(file, fieldnames = header)
     writer.writeheader()
     try:
@@ -110,8 +111,9 @@ for ind in range(len(event_details)):
 # print(event_details)
 logger.info('[Status] Event data has been extracted.')
 
-with open('results/restaurant_events.csv', 'w', encoding = 'utf-8') as file: # need to write utf-8 for special characters like पुणे 
-    header = ['Event_id', 'Restaurant_id', 'Name', 'Photo_Url','Event_Title', 'Start_Date', 'End_Date']
+with open('results/restaurant_events.csv', 'w', encoding = 'utf-8') as file: 
+    header = ['Event_id', 'Restaurant_id', 'Name', 'Photo_Url',
+              'Event_Title', 'Start_Date', 'End_Date']
     writer = csv.DictWriter(file, fieldnames = header)
     writer.writeheader()
     try:
