@@ -13,7 +13,13 @@ When designing the solution, I initially explored the data and realized that the
 With all this in mind, for us to get all the data needed, this solution is optimized as far as possible with the time complexity of `O(n^2)`
 
 ## Architecture Diagram
-```flow
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 st=>start: Start
 file_reading_xlsx=> operation: File reading [Country-Code.xlsx]
 file_reading_json=> operation: File reading [restaurant_data.json]
@@ -30,4 +36,3 @@ st->file_reading_xlsx->file_reading_json->loop
 loop(no)->country_valid
 loop(yes)->extract_data_restaurant->file_writing_restaurant
 country_valid(yes)->extract_data_restaurant
-```
