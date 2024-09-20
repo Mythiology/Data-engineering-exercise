@@ -14,25 +14,20 @@ With all this in mind, for us to get all the data needed, this solution is optim
 
 ## Architecture Diagram
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+Architecture Diagram;
+    Start-->File reading [Country-Code.xlsx];
+    File reading [Country-Code.xlsx]-->File reading [restaurant_data.json];
+    File reading [restaurant_data.json]-->Extracting data [restaurant_details.csv];
+    Extracting data [restaurant_details.csv]-->Check if the country id of the restaurant inside Country-Code.xlsx?;
+    Check if the country id of the restaurant inside Country-Code.xlsx?-->[No] Ignore;
+    Check if the country id of the restaurant inside Country-Code.xlsx?-->[Yes] Extract the data;
+    [Yes] Extract the data-->Once down with all data, File writing [restaurant_details.csv];
+    [Yes] Extract the data-->Extract user rating text and rating;
+    Extract user rating text and rating-->Show the rough rating for each user rating text;
+    Once down with all data, File writing [restaurant_details.csv]-->Extracting data [restaurant_events.csv];
+    Extracting data [restaurant_events.csv]-->Check if the startdate or enddate of the event in April 2019?;
+    Check if the startdate or enddate of the event in April 2019?-->[No] Ignore;
+    Check if the startdate or enddate of the event in April 2019?-->[Yes] Extract the data;
+    [Yes] Extract the data-->Once down with all data, File writing [restaurant_events.csv];
+    Once down with all data, File writing [restaurant_events.csv]-->End;
 ```
-st=>start: Start
-file_reading_xlsx=> operation: File reading [Country-Code.xlsx]
-file_reading_json=> operation: File reading [restaurant_data.json]
-loop=> condition: Has all data been accessed?
-country_valid=> condition: Is the country id of the restaurant inside Country-Code.xlsx?
-country_valid=> condition: Is the startdate or enddate of the event in April 2019?
-extract_data_restaurant=> operation: Extract restaurant info
-extract_data_events=> operation: Extract event info
-file_writing_restaurant=> operation: File writing [restaurant_details.csv]
-file_writing_events=> operation: File writing [restaurant_events.csv]
-
-
-st->file_reading_xlsx->file_reading_json->loop
-loop(no)->country_valid
-loop(yes)->extract_data_restaurant->file_writing_restaurant
-country_valid(yes)->extract_data_restaurant
