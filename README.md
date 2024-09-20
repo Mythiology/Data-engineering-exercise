@@ -15,11 +15,13 @@ With all this in mind, for us to get all the data needed, this solution is optim
 ## Architecture Diagram
 ```mermaid
 graph TD;
-    Start-->File reading [Country-Code.xlsx];
-    File reading [Country-Code.xlsx]-->File reading [restaurant_data.json];
-    File reading [restaurant_data.json]-->Extracting data [restaurant_details.csv];
-    Extracting data [restaurant_details.csv]-->Check if the country id of the restaurant inside Country-Code.xlsx?;
-    Check if the country id of the restaurant inside Country-Code.xlsx?-->[No] Ignore;
+    Start-->File_reading_Country-Code.xlsx;
+    File_reading_Country-Code.xlsx-->File_reading_restaurant_data.json;
+    File_reading_restaurant_data.json-->Extracting_data_restaurant_details.csv;
+    Extracting_data_restaurant_details.csv-->Check_if_the country_id_of_the_restaurant_inside_Country-Code.xlsx?;
+    
+```
+Check if the country id of the restaurant inside Country-Code.xlsx?-->[No] Ignore;
     Check if the country id of the restaurant inside Country-Code.xlsx?-->[Yes] Extract the data;
     [Yes] Extract the data-->Once down with all data, File writing [restaurant_details.csv];
     [Yes] Extract the data-->Extract user rating text and rating;
@@ -30,4 +32,3 @@ graph TD;
     Check if the startdate or enddate of the event in April 2019?-->[Yes] Extract the data;
     [Yes] Extract the data-->Once down with all data, File writing [restaurant_events.csv];
     Once down with all data, File writing [restaurant_events.csv]-->End;
-```
