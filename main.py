@@ -64,11 +64,16 @@ for ele in range(len(data)):
         
         """filtering out empty event values"""
         if isinstance(raw,list): 
-            temp['Event_Data'] = raw
+
+            """Task did not specify what Event Data Extraction is so 
+            we assume that we need to display all the info"""
+            temp['Event_Data'] = raw 
 
             """extracting data from events"""
             for event in raw:
                 row = {}
+
+                """Assume that events starting and ending in April 2019 is what we need"""
                 if '2019-04' in event['event']['start_date'] or '2019-04' in event['event']['end_date']:
                     """assume that every photo is needed"""
                     row['Event_id'] = int(event['event']['event_id'])
@@ -98,7 +103,8 @@ with open('results/restaurant_details.csv', 'w', encoding = 'utf-8') as file:
     except Exception as error:
         logger.error('[Error] restaurant_details.csv file writing: {}'.format(error))
 
-"""cleaning up photo urls, since there can be multiple photos for one event"""
+"""cleaning up photo urls, since there can be multiple photos for one event,
+assumed that all main photos (not including thumbnail photos) are needed"""
 for ind in range(len(event_details)):
     pics = ""
     for ele in event_details[ind]['Photo_Url']:
