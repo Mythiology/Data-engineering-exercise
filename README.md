@@ -13,6 +13,7 @@ When designing the solution, I initially explored the data and realized that the
 With all this in mind, for us to get all the data needed, this solution is optimized as far as possible with the time complexity of `O(n^2)`
 
 ## Architecture Diagram
+Simplified version of the code architecture
 ```mermaid
 graph TD;
     id1(Start)-->File_reading_Country-Code.xlsx;
