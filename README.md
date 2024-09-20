@@ -18,7 +18,7 @@ graph TD;
     Start-->File_reading_Country-Code.xlsx;
     File_reading_Country-Code.xlsx-->File_reading_restaurant_data.json;
     File_reading_restaurant_data.json-->Extracting_data_restaurant_details.csv;
-    Extracting_data_restaurant_details.csv-->;
+    Extracting_data_restaurant_details.csv-->misclick;
     
 ```
 Check if the country id of the restaurant inside Country-Code.xlsx?-->[No] Ignore;
